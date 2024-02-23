@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <title>Galeri Gambar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <style>
+        /* Custom styles */
+        .thumbnail {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="swiper galleries-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide thumbnail swiper-zoom-container" data-bs-toggle="modal" data-bs-target="#imageModal">
+                    <img src="https://media.istockphoto.com/id/1461095812/id/foto/potret-asia-pengantin-wanita-membantu-pengantin-pria-untuk-mengenakan-gaun-pengantin-di-toko.jpg?s=1024x1024&w=is&k=20&c=tQMTAYHgpEYW5jsGPGMw715Ta2mUNMsYcmYfeuDK9mU=" alt="">
+                </div>
+                <div class="swiper-slide thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal">
+                    <img src="https://media.istockphoto.com/id/901816916/id/foto/potret-pasangan-pengantin-baru-asia.jpg?s=1024x1024&w=is&k=20&c=z1WvGs7ukHgdJfk9kEMwKkSuK_TbmdDGZZ6DdIrPHJY=" alt="">
+                </div>
+                <div class="swiper-slide thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal">
+                    <img src="https://media.istockphoto.com/id/899308236/id/foto/youg-pasangan-asia-berpelukan-di-hari-pernikahan.jpg?s=1024x1024&w=is&k=20&c=omXtBwSj5SonywGNSFfBV9tpSmTGKEWKzdRXClqht5E=" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk tampilan gambar detail -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/assets/themes/New1/img/bg3.png" class="img-fluid" id="modalImage" alt="Gambar Detail">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(function (thumbnail) {
+                thumbnail.addEventListener('click', function () {
+                    var imgSrc = this.querySelector('img').getAttribute('src');
+                    document.querySelector('#modalImage').setAttribute('src', imgSrc);
+                });
+            });
+
+            var gallerySwiper = new Swiper('.galleries-swiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 10,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
+
+</body>
+
+</html>
